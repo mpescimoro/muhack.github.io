@@ -12,7 +12,7 @@ Eccoci arrivati alla fine di quest'anno, un anno pieno di eventi e di ricordi, d
 
 Come sempre, siete tutti invitati a venire a trovarci ogni venerdì dalle ***18:00 alle 24:00 sera presso il Cedisu in Via Valotti 3b, dentro la Sala Associazioni:*** ```al momento le attività sono sospese sino a nuova comunicazione!```
 
-# Assemblea generale 2017
+## Assemblea generale 2017
 In data **15 Dicembre 2017** si è tenuta l'assemblea ordinaria dei soci che ha avuto come principale argomento del giorno l'elezione del nuovo consiglio direttivo: vorrei con voi fare i complimenti a ```Federico per la carica di Presidente e a Yanez per la carica di Vice-Presidente!```
 Il verbale della riunione, completo di tutti i dettagli e argomenti discussi, può essere consultato al [seguente link](/public/doc/verbale_assemblea-2017-12-15.pdf)
 

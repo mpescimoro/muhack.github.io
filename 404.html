@@ -1,9 +1,42 @@
 ---
-layout: page
-title: "404: Not Found"
-description: "Oh No!"
-permalink: 404.html
+layout: default
+title: "404"
+permalink: /404.html
 ---
-
-<h2>The page you're looking for does not exist!</h2>
-<p>Or does it? We suggest heading back <a href="{{ site.baseurl }}/">here</a> and try again.</p>
+<div class="content-wrapper error-page">
+    <div class="error-content">
+        <div class="error-code">404</div>
+        <h1 class="error-title">PAGINA NON TROVATA</h1>
+        <p class="error-message">Il file che stai cercando non esiste o è stato spostato.</p>
+        
+        <div class="error-terminal">
+            <div class="terminal-header">
+                <div class="terminal-header-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                    muhack@sede: ~
+                </div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">➜</span>
+                        <span class="terminal-path"> ~</span>
+                        <span class="terminal-cmd"> cat pagina.txt</span>
+                    </div>
+                    <span class="terminal-output error">cat: pagina.txt: No such file or directory</span>
+                    <div class="terminal-line" style="margin-top: 0.5rem;">
+                        <span class="terminal-prompt">➜</span>
+                        <span class="terminal-path"> ~</span>
+                        <span class="terminal-cmd"> find / -name "pagina_perduta"</span>
+                    </div>
+                    <span class="terminal-output comment"># Nessun risultato trovato</span>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ site.baseurl }}/" class="error-btn">← Torna alla Home</a>
+    </div>
+</div>

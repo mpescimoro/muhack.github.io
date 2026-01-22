@@ -1,0 +1,214 @@
+---
+layout: default
+---
+<section class="hero" role="banner" aria-label="Presentazione MuHack">
+    <div class="hero-left">
+        <canvas class="hero-canvas" id="networkCanvas"></canvas>
+        <div class="hero-title-container">
+            <div class="hero-label">Brescia, Italy — dal 2014</div>
+            <h1 class="hero-title">
+                <span class="line line-1">The First</span>
+                <span class="line line-2"><span class="scramble-text" data-text="Hackerspace">Hackerspace</span></span>
+                <span class="line line-3">in Brescia</span>
+            </h1>
+        </div>
+    </div>
+    
+    <div class="hero-right">
+        <div class="hero-section hero-section-chi">
+            <div class="hero-section-content">
+                <div class="hero-section-label">Chi siamo</div>
+                <h2 class="hero-section-title">Cultura Open-Source</h2>
+                <p class="hero-section-text">Un laboratorio aperto dove costruiamo, smontiamo e impariamo insieme. Elettronica, software, stampa 3D: se ti incuriosisce, vieni a smanettare con noi.</p>
+                <a href="{{ site.baseurl }}/about/" class="hero-btn">Scopri di più →</a>
+            </div>
+        </div>
+        
+        <div class="hero-section hero-section-terminal" role="region" aria-label="Terminale interattivo">
+            <div class="terminal-header">
+                <div class="terminal-header-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                    muhack@sede: ~
+                </div>
+                <div class="terminal-header-buttons">
+                    <div class="terminal-header-btn">−</div>
+                    <div class="terminal-header-btn">□</div>
+                    <div class="terminal-header-btn">×</div>
+                </div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-content" id="terminalOutput">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">➜</span>
+                        <span class="terminal-path"> ~</span>
+                        <span class="terminal-cmd"> cat orari.txt</span>
+                    </div>
+                    <span class="terminal-output highlight">Martedì 18:00 → 23:45</span>
+                    
+                    <div class="terminal-line" style="margin-top: 0.5rem;">
+                        <span class="terminal-prompt">➜</span>
+                        <span class="terminal-path"> ~</span>
+                        <span class="terminal-cmd"> cat dove.txt</span>
+                    </div>
+                    <span class="terminal-output">Via Valotti 3, Mompiano, Brescia</span>
+                    <span class="terminal-output">Aula Associazioni — CedIsu</span>
+                    <span class="terminal-output comment"># Metro fermata Europa</span>
+                    
+                    <div class="terminal-line" style="margin-top: 0.5rem;">
+                        <span class="terminal-prompt">➜</span>
+                        <span class="terminal-path"> ~</span>
+                        <span class="terminal-cmd"> ./apri_mappa.sh</span>
+                    </div>
+                    <a href="https://maps.google.com/?q=45.5656602,10.2340253" target="_blank" class="terminal-output terminal-link">→ 45.5656°N, 10.2340°E</a>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">➜</span>
+                    <span class="terminal-path">&nbsp;~</span>
+                    <span>&nbsp;</span>
+                    <input type="text" class="terminal-input" id="terminalInput" placeholder="help per i comandi..." autocomplete="off" spellcheck="false" aria-label="Inserisci comando terminale">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main role="main" aria-label="Contenuto principale">
+    <div class="main-inner">
+        <div class="section-header">
+            <h2>EVENTI<br>& NEWS</h2>
+            <span class="subtitle">Cosa succede in sede</span>
+        </div>
+
+        {% assign featured_post = site.posts | where_exp: "post", "post.categories contains 'Events'" | first %}
+        {% unless featured_post %}
+            {% assign featured_post = site.posts.first %}
+        {% endunless %}
+
+        {% if featured_post %}
+        <article class="featured-event">
+            <div class="featured-date-block">
+                <span class="day">{{ featured_post.date | date: "%d" }}</span>
+                <span class="month">{{ featured_post.date | date: "%b %Y" }}</span>
+            </div>
+            <div class="featured-content">
+                <span class="featured-tag">Ultimo evento</span>
+                <h3>{{ featured_post.title }}</h3>
+                {% if featured_post.subtitle %}<p>{{ featured_post.subtitle }}</p>{% endif %}
+                <div class="featured-meta">
+                    <span class="author">{{ featured_post.author | default: site.title }}</span>
+                    <a href="{{ featured_post.url | prepend: site.baseurl }}" class="featured-link">Leggi tutto →</a>
+                </div>
+            </div>
+        </article>
+        {% endif %}
+
+        <div class="events-grid">
+            {% assign count = 0 %}
+            {% for post in site.posts %}
+                {% if post.url != featured_post.url and count < 4 %}
+                {% assign category = post.categories | first | downcase %}
+                <a href="{{ post.url | prepend: site.baseurl }}" class="event-card">
+                    <div class="event-card-inner">
+                        <div class="event-date">
+                            <span class="day">{{ post.date | date: "%d" }}</span>
+                            <span class="month">{{ post.date | date: "%b %Y" }}</span>
+                        </div>
+                        <div class="event-body">
+                            {% if category == 'events' %}<span class="event-type event">Event</span>
+                            {% elsif category == 'talks' %}<span class="event-type event">Talk</span>
+                            {% else %}<span class="event-type news">News</span>{% endif %}
+                            <h3>{{ post.title }}</h3>
+                            {% if post.subtitle %}<p>{{ post.subtitle }}</p>{% endif %}
+                            <div class="meta">
+                                <span class="author">{{ post.author | default: site.title }}</span>
+                                <span class="read-more">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% assign count = count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="view-all-container">
+            <a href="{{ site.baseurl }}/blog/" class="view-all-btn">Vedi tutti i post →</a>
+        </div>
+    </div>
+</main>
+
+<!-- Dal Lab Section -->
+<section class="dal-lab" role="region" aria-label="Progetti dal laboratorio">
+    <div class="dal-lab-inner">
+        <div class="dal-lab-header">
+            <h2>DAL LAB</h2>
+            <span class="subtitle">Progetti dalla sede</span>
+        </div>
+        
+        <div class="dal-lab-grid">
+            <article class="dal-lab-card">
+                <div class="dal-lab-card-image">
+                    <img src="https://muhack.org/public/img/2023-07-08-CCC23-landing-page-badge-rotate.gif" alt="MuHack Badge CCC23" loading="lazy">
+                </div>
+                <div class="dal-lab-card-body">
+                    <span class="dal-lab-card-label">Hardware</span>
+                    <h3>MuHack Badge</h3>
+                    <p>Badge ufficiale con RP2040 dual-core, IMU 9DOF e NFC. Presentato al CCC23.</p>
+                    <div class="dal-lab-card-tags">
+                        <span class="dal-lab-card-tag">RP2040</span>
+                        <span class="dal-lab-card-tag">KiCad</span>
+                        <span class="dal-lab-card-tag">MicroPython</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="dal-lab-card">
+                <div class="dal-lab-card-image">
+                    <img src="/assets/img/muhack-soldering-station.jpg" alt="Stazione di Saldatura" loading="lazy">
+                </div>
+                <div class="dal-lab-card-body">
+                    <span class="dal-lab-card-label">Attrezzatura</span>
+                    <h3>Stazione di Saldatura</h3>
+                    <p>Include microscopio digitale, stazione ad aria calda, saldatore di precisione e strumenti di misura da banco.</p>
+                    <div class="dal-lab-card-tags">
+                        <span class="dal-lab-card-tag">SMD</span>
+                        <span class="dal-lab-card-tag">Riparazione</span>
+                        <span class="dal-lab-card-tag">Prototipazione</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="dal-lab-card">
+                <div class="dal-lab-card-image">
+                    <img src="/assets/img/muhack-server.jpg" alt="Gaspare, Melchiorre e Baldassarre" loading="lazy">
+                </div>
+                <div class="dal-lab-card-body">
+                    <span class="dal-lab-card-label">Infrastruttura</span>
+                    <h3>Server</h3>
+                    <p>L’infrastruttura che tiene acceso il lab con VM per i soci e ambienti di test per esperimenti con LLM e AI.</p>
+                    <div class="dal-lab-card-tags">
+                        <span class="dal-lab-card-tag">LLM</span>
+                        <span class="dal-lab-card-tag">VM</span>
+                        <span class="dal-lab-card-tag">Self-hosted</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<script>
+window.MUHACK_SOCIAL = {
+    telegram: "{{ site.telegram }}",
+    github: "{{ site.github-username }}",
+    twitter: "{{ site.twitter-username }}",
+    instagram: "{{ site.instagram }}",
+    youtube: "{{ site.youtube-username }}",
+    facebook: "{{ site.facebook-username }}",
+    email: "{{ site.email }}"
+};
+</script>
+<script src="{{ '/assets/js/home.js' | prepend: site.baseurl }}"></script>

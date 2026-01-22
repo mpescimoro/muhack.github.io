@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "International Open Hackerspace Day 2025 @ MuHack"
-subtitle: ""
+subtitle: "Una giornata a porte aperte per scoprire la cultura hacker"
 categories: News
 date: 2025-03-24
 author: ceres-c & dr-marco
@@ -34,7 +34,7 @@ A hacker esperti e chiunque voglia respirare l'aria di un hackerspace per capire
 ## Dove e come posso raggiungervi?
 Ci trovi __nell'aula Associazioni presso il CedIsu__, in Via Valotti 3, Mompiano, Brescia, [clicca qui per vedere la mappa](https://goo.gl/maps/cxAs66G3Kqm).
 
-* <span class="fa fa-1x fa-train"> *Treno*</span> - Scendi alla Stazione di Brescia ed entra direttamente nella metro (aperta fino a mezzanotte).
-* <span class="fa fa-1x fa-subway"> *Metro*</span> - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
-* <span class="fa fa-1x fa-bus"> *Autobus*</span> - Linea 16 e 10 in Via Branze, risali sino ai campi di calcio e padel ed entra nel parcheggio.
-* <span class="fa fa-1x fa-car"> *Auto*</span> - Parcheggia in zona.
+* **Treno** - Scendi alla Stazione di Brescia ed entra direttamente nella metro (aperta fino a mezzanotte).
+* **Metro** - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
+* **Autobus** - Linea 16 e 10 in Via Branze, risali sino ai campi di calcio e padel ed entra nel parcheggio.
+* **Auto** - Parcheggia in zona.

@@ -18,7 +18,7 @@ Arrivando infine ad oggi, dopo quasi un anno, MuCluster ha raggiunto i 200 gigaF
 
 ![MuCluster](/public/img/2017-03-14-mu-cluster-1.png)
 
-# Specifiche tecniche
+## Specifiche tecniche
 Riportiamo qui alcune delle principali specifiche che caratterizzano MuCluster:
 
 *  ***Hardware:*** 15 nodi - Intel - 4 GB ram - 250 GB HD - 10/100Mbit LAN

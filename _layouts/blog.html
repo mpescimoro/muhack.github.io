@@ -1,0 +1,108 @@
+---
+layout: default
+---
+<!-- Page Header -->
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="page-header-content">
+            <h1>BLOG</h1>
+            <p class="lead">News, eventi, writeup e tutto quello che succede in hackerspace.</p>
+        </div>
+        <div class="page-header-logo">
+            <img src="https://raw.githubusercontent.com/muhack/muhack_svg/refs/heads/master/loghi/logo.svg" alt="MuHack Logo">
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="content-wrapper">
+    <div class="blog-content">
+        <!-- Filter Tabs -->
+        <div class="filter-bar" role="tablist" aria-label="Filtra per tipo">
+            <button class="filter-tab active" role="tab" aria-selected="true" data-filter="all">Tutti</button>
+            <button class="filter-tab" role="tab" aria-selected="false" data-filter="events">Eventi</button>
+            <button class="filter-tab" role="tab" aria-selected="false" data-filter="talks">Talks</button>
+            <button class="filter-tab" role="tab" aria-selected="false" data-filter="news">News</button>
+        </div>
+
+        <!-- Posts List -->
+        <div class="posts-list" id="postsList">
+            {% for post in paginator.posts %}
+            {% assign category = post.categories | first | downcase %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="post-card{% if forloop.first %} featured{% endif %}" data-category="{{ category | default: 'news' }}">
+                <div class="post-card-inner">
+                    <div class="post-date">
+                        <span class="day">{{ post.date | date: "%d" }}</span>
+                        <span class="month">{{ post.date | date: "%b %Y" }}</span>
+                    </div>
+                    <div class="post-body">
+                        {% if category == 'events' %}
+                        <span class="post-tag event">Event</span>
+                        {% elsif category == 'talks' %}
+                        <span class="post-tag talks">Talk</span>
+                        {% elsif category == 'writeup' or category == 'writeups' %}
+                        <span class="post-tag writeup">Writeup</span>
+                        {% else %}
+                        <span class="post-tag news">News</span>
+                        {% endif %}
+                        <h3>{{ post.title }}</h3>
+                        {% if post.subtitle %}<p>{{ post.subtitle }}</p>{% endif %}
+                        <div class="post-meta">
+                            <span class="author">{{ post.author | default: site.title }}</span>
+                            {% assign words = post.content | number_of_words %}
+                            {% assign minutes = words | divided_by: 200 %}
+                            {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+                            <span class="reading-time">{{ minutes }} min</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">← Più recenti</a>
+            {% else %}
+            <span class="disabled">← Più recenti</span>
+            {% endif %}
+            
+            <span style="color: var(--steel); padding: 0.5rem;">Pagina {{ paginator.page }} di {{ paginator.total_pages }}</span>
+            
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Meno recenti →</a>
+            {% else %}
+            <span class="disabled">Meno recenti →</span>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// Filter tabs functionality
+document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Update active state
+        document.querySelectorAll('.filter-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        
+        // Filter posts
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.post-card').forEach(card => {
+            if (filter === 'all') {
+                card.style.display = '';
+            } else {
+                const category = card.dataset.category;
+                card.style.display = (category === filter) ? '' : 'none';
+            }
+        });
+    });
+});
+</script>

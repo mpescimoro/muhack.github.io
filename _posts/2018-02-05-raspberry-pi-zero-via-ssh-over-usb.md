@@ -9,9 +9,7 @@ header-img: https://www.raspberrypi.org/app/uploads/2017/05/Raspberry-Pi-Zero-1-
 hidden: true
 ---
 
-
-# Collegare un Raspberry pi zero ad un pc tramite ssh sulla porta USB
-
+## Collegare un Raspberry pi zero ad un pc tramite ssh sulla porta USB
 
 Qualche giorno fa mi sono ritrovato a dover progettare un dispositivo *headless* (ovvero senza display e senza periferiche di input) basato su un Raspi (abbreviativo di Raspberry Pi) zero [vedi immagine sotto], che, come è noto, non possiede porte ethernet "fisiche", ma solo 2 porte micro USB (di cui una solo per l'alimentazione), una micro HDMI, le due porte proprietarie per la Raspi cam e per il display ed i classici GPIO di tutti i Raspberry, nient'altro.
 

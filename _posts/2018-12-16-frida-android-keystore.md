@@ -14,7 +14,7 @@ L'SSL pinning è ormai presente in quasi ogni applicazione android, ma può esse
 
 Cosa dovrebbe dunque fare uno sviluppatore se volesse assicurarsi che i dati non vengano modificati nel tragitto da client a server o viceversa?
 
-# SSL (TLS) e SSL Pinning #
+## SSL (TLS) e SSL Pinning 
 Prima di tutto una breve spiegazione di SSL e SSL pinning. Chi è già familiare con questo argomento può passare direttamente al prossimo capitolo, non ci sarà nulla di nuovo per lui.
 
 SSL (Secure Sockets Layer) è un protocollo creato per garantire una connessione criptata tra utente (che può essere un'app o un browser) e server. SSL risale al 1995 ed è stato ritirato dal 2015, sostituito da TLS, ma spesso si utilizza ancora il nome SSL, cosa che avverrà da qui in avanti. SSL assicura che tutti i dati trasmessi dal client al server (e viceversa) rimangano privati e intatti.
@@ -25,7 +25,7 @@ SSL può essere ritenuto sicuro ([abbastanza sicuro][3]), ma non risolve il sott
 
 Utilizzando uno dei metodi linkati all'inizio di questo post dovrebbe diventare possibile leggere il traffico mediante un qualsiasi strumento di sniffing.
 
-# Cerificati lato client #
+## Cerificati lato client
 Quando uno sviluppatore vuole essere __assolutamente__ certo nessuno legga i dati può integrare dei certificati nell'app e configurare il server per richiedere quei certificati durante l'esecuzione del TLS handshake. Questa procedura viene spiegata a fondo sul [sito IBM][5].
 
 Lo sviluppatore può inoltre nascondere il certificato da qualche parte nell'app, plausibilmente come Java KeyStore file (.jks) con password per l'apertura. A sua volta, la password potrebbe essere nascosta con qualche metodo come il (non più mantenuto) progetto [Cipher.so][6].
@@ -34,14 +34,14 @@ Tutti questi accorgimenti sono probabilmente sufficienti per fermare a un attacc
 
 Qui è dove Frida entra in gioco.
 
-# Strumentazione dinamica del codice #
+## Strumentazione dinamica del codice
 [Frida][7] è uno strumento che dà la possibilità di collegarsi a classi Java (in questo caso particolare) e modificare i metodi a runtime.<br>Dinamicamente.<br>Con JavaScript.
 
 Sì, __*è*__ esattamente magico quanto sembra dalla descrizione.
 
 Con la potenza della strumentazione dinamica si può modificare il software per fargli fare qualsiasi cosa si voglia. È possibile, ad esempio, estrarre i parametri con cui una funzione viene stata chiamata, ridurre la sicurezza al volo (modificando una funzione di signature check) o utilizzare pezzi di codice (firmando messaggi manomessi con la funzione di firma originale per farli accettare dal server). [Brida][8] è un buon esempio di come questi strumenti possano facilitare la vita.
 
-# Mettere insieme i pezzi #
+## Mettere insieme i pezzi
 I KeyStore Android hanno un metodo `load` utilizzato per instanziare un keystore con alcuni dati e supporta overloading in questi due metodi:
 - `load(KeyStore.LoadStoreParameter param)`
 - `load(InputStream stream, char[] password)`
@@ -52,7 +52,7 @@ Frida ci aiuta nella scelta del metodo da modificare grazie ad un suo metodo `ov
 
 [Questo è lo script risultante][10].
 
-### Come funziona ###
+### Come funziona
 Ignorerò il codice python che è solo un wrapper per la gestione, proseguiamo con il codice javascript che viene iniettato nell'app.
 
 
@@ -140,7 +140,7 @@ La password e la rappresentazione ASCII dell'InputStream sono ora passati al cli
 
 Come ultimo passaggio la vera implementazione di `load` viene chiamata con i parametri originali cosicchè il flusso dell'app non venga interrotto e il certificato venga effettivamente caricato nel keystore.
 
-# Risultati #
+## Risultati
 Per prima cosa si deve scaricare frida ed eseguire `./frida-server &` sul dispositivo obiettivo, poi va eseguito lo script sul computer e si dovrebbe ottenere qualcosa di simile a questo
 
 <figure><a href="{{ site.url }}/public/img/2019-02-12-frida-android-keystore-script_example.jpg"><img src="{{ site.url }}/public/img/2019-02-12-frida-android-keystore-script_example.jpg" alt="Esempio di output dello script"></a><figcaption>Esempio output dello script</figcaption></figure>

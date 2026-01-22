@@ -1,101 +1,23 @@
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% if site.twitter-username %}
-                    <li>
-                        <a href="https://twitter.com/{{ site.twitter-username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.facebook-username %}
-                    <li>
-                        <a href="https://www.facebook.com/{{ site.facebook-username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-facebook fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.github-username %}
-                    <li>
-                        <a href="https://github.com/{{ site.github-username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.youtube-username %}
-                    <li>
-                        <a href="https://youtube.com/@{{ site.youtube-username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-youtube fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.instagram %}
-                    <li>
-                        <a href="https://www.instagram.com/{{ site.instagram }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.telegram %}
-                    <li>
-                        <a href="https://t.me/{{ site.telegram }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-brands fa-telegram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if site.email %}
-                    <li>
-                        <a href="mailto:{{ site.email }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <p class="copyright text-muted">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}</p>
-            </div>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span>© {{ site.time | date: '%Y' }} MuHack — Brescia</span>
+        </div>
+        <div class="footer-links">
+            {% if site.facebook-username %}<a href="https://www.facebook.com/{{ site.facebook-username }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+            {% if site.twitter-username %}<a href="https://twitter.com/{{ site.twitter-username }}" target="_blank" rel="noopener">Twitter</a>{% endif %}
+            {% if site.instagram %}<a href="https://www.instagram.com/{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+            {% if site.youtube-username %}<a href="https://youtube.com/@{{ site.youtube-username }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+            {% if site.github-username %}<a href="https://github.com/{{ site.github-username }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+            {% if site.telegram %}<a href="https://t.me/{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>{% endif %}
+            <a href="{{ '/feed.xml' | prepend: site.baseurl }}">RSS</a>
+        </div>
+        <div class="footer-status">
+            <span class="status-dot"></span>
+            <a href="https://status.muhack.org/" target="_blank" rel="noopener">sede.muhack.org</a>
         </div>
     </div>
 </footer>
-
-<!-- jQuery Javascript -->
-<script src="{{ '/assets/js/jquery.min.js' | prepend: site.baseurl }}"></script>
-<!-- Bootstrap Core Javascript -->
-<script src="{{ '/assets/js/bootstrap.min.js' | prepend: site.baseurl }}"></script>
-<!-- Particles Javascript -->
-<script src="{{ '/assets/js/particles.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/assets/js/app.js' | prepend: site.baseurl }}"></script>
-<!-- Lunr Javascript -->
 <script src="{{ '/assets/js/lunr.min.js' | prepend: site.baseurl }}"></script>
-<!-- Custom JavaScript -->
-<script src="{{ '/assets/js/muhack.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>
+{% include analytics.html %}

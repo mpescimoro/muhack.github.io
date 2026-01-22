@@ -1,49 +1,92 @@
 ---
 layout: default
 ---
+<div class="article-header">
+    <div class="article-header-inner">
+        <nav class="breadcrumb">
+            <a href="{{ site.baseurl }}/">Home</a>
+            <span>/</span>
+            <a href="{{ site.baseurl }}/blog/">Blog</a>
+            <span>/</span>
+            <span>{{ page.title }}</span>
+        </nav>
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{% if page.header-img %}{{ page.header-img }}{% endif %}')">
-    <div class="darken">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>{{ page.title }}</h1>
-                        {% if page.subtitle %}
-                        <h2 class="subheading">{{ page.subtitle }}</h2>
-                        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}</span>
-                        {% endif %}
+        <div class="article-meta">
+            {% assign category = page.categories | first | downcase %}
+            {% if category == 'events' %}<span class="article-type">Event</span>
+            {% elsif category == 'talks' %}<span class="article-type">Talk</span>
+            {% elsif category == 'writeup' or category == 'writeups' %}<span class="article-type writeup">Writeup</span>
+            {% else %}<span class="article-type news">News</span>{% endif %}
+            <time class="article-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>
+            {% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+            <span class="reading-time">{{ minutes }} min</span>
+        </div>
+
+        <h1>{{ page.title | upcase }}</h1>
+        {% if page.subtitle %}<p class="article-excerpt">{{ page.subtitle }}</p>{% endif %}
+
+        <div class="article-author">
+            <div class="author-avatar">{{ page.author | default: site.title | slice: 0 | upcase }}</div>
+            <div class="author-info">
+                <span class="author-name">{{ page.author | default: site.title }}</span>
+                <span class="author-role">MuHack Member</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <article class="article-content">
+        <div class="article-body">{{ content }}</div>
+
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="article-tags">
+            {% for tag in page.tags %}<span class="article-tag">{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
+    </article>
+
+    <nav class="post-nav">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url | prepend: site.baseurl }}" class="post-nav-item prev">
+            <div class="post-nav-label">Precedente</div>
+            <div class="post-nav-title">{{ page.previous.title }}</div>
+        </a>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ page.next.url | prepend: site.baseurl }}" class="post-nav-item next">
+            <div class="post-nav-label">Successivo</div>
+            <div class="post-nav-title">{{ page.next.title }}</div>
+        </a>
+        {% endif %}
+    </nav>
+</div>
+
+{% assign first_category = page.categories | first %}
+{% assign related = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.categories contains first_category" | slice: 0, 3 %}
+{% if related.size == 0 %}
+    {% assign related = site.posts | where_exp: "post", "post.url != page.url" | slice: 0, 3 %}
+{% endif %}
+
+{% if related.size > 0 %}
+<section class="related-posts">
+    <div class="related-posts-inner">
+        <div class="related-posts-header"><h2>POST CORRELATI</h2></div>
+        <div class="related-grid">
+            {% for post in related %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="related-card">
+                <div class="related-card-body">
+                    <div class="related-card-meta">
+                        {% assign cat = post.categories | first | downcase %}
+                        <span class="related-card-type">{% if cat == 'events' %}Event{% elsif cat == 'talks' %}Talk{% else %}News{% endif %}</span>
+                        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
                     </div>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.excerpt | strip_html | truncate: 80 }}</p>
                 </div>
-            </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-				        {{ content }}
-
-                <hr>
-
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</article>
+</section>
+{% endif %}

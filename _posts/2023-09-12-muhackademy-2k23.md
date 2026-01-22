@@ -81,10 +81,10 @@ Se volete seguire con il vostro computer, assicuratevi di installare KiCad 7 e s
 ## Dove e come posso raggiungervi?
 Ci trovi __nell'aula Polifunzionale presso il CedIsu__, in Via Valotti 3, Mompiano, Brescia, [clicca qui per vedere la mappa](https://goo.gl/maps/cxAs66G3Kqm).
 
-* <span class="fa fa-1x fa-train"> *Treno*</span> - Scendi alla Stazione di Brescia, nel piazzale prosegui a destra, raggiungendo la stazione della metro (aperta fino a mezzanotte).
-* <span class="fa fa-1x fa-subway"> *Metro*</span> - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
-* <span class="fa fa-1x fa-bus"> *Autobus*</span> - Linea 16 e 10 in Via Branze, risali sino al campo da baseball ed entra nel parcheggio.
-* <span class="fa fa-1x fa-car"> *Auto*</span> - Parcheggia in zona.
+* **Treno** - Scendi alla Stazione di Brescia, nel piazzale prosegui a destra, raggiungendo la stazione della metro (aperta fino a mezzanotte).
+* **Metro** - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
+* **Autobus** - Linea 16 e 10 in Via Branze, risali sino al campo da baseball ed entra nel parcheggio.
+* **Auto** - Parcheggia in zona.
 
 Una volta giunto nei pressi di Via Branze-rotonda-viale Europa, attraversa tutto il parcheggio ed entra dal cancello posto alla fine di esso. Segui la pedana e prosegui lungo il vialetto. Volta verso il cancello e sali le scale a sinistra: troverai la locandina affissa alla "casetta gialla". Entra, saremo lì!
 

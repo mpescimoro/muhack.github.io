@@ -8,7 +8,7 @@ author: Yanez
 header-img: /public/img/2017-12-30-gnu-year.jpg
 ---
 
-# News & Update
+## News & Update
 
 Il __14/12 si è tenuta l'assemblea ordinaria__ di fine anno, dove sono state approvate le attività 2018-2019 (passate e future) e sono stati discussi alcuni argomenti.
 

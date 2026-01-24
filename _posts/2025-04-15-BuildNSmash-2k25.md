@@ -24,26 +24,26 @@ L’evento si compone di **due parti principali**:
 
 ---
 
-# Come si articolano le attività:
+## Come si articolano le attività:
 
-## 📚 Lezioni formative
+### 📚 Lezioni formative
 Si faranno otto lezioni dove si affronteranno gli argomenti essenziali per la progettazione e realizzazione di un robot da *battlebot* nella categoria **simil-antweight**.  
 Parleremo di progettazione del design orientato al combattimento, entrando negli aspetti tecnici di informatica, elettronica e robotica.  
 Tutto il materiale visto nelle lezioni verrà fornito ai partecipanti.
 
-## 🔩 Laboratorio e Montaggio
+### 🔩 Laboratorio e Montaggio
 
 A seguito delle lezioni sarà possibile costruire il robot da te progettato!  
 Stamperemo in 3d il telaio da voi progettato, e verranno forniti strumenti di base come viteria e cacciaviti per poter realizzare il proprio *battlebot*.  
 
-## 🤖 Torneo Finale
+### 🤖 Torneo Finale
 Costruite il vostro robot e mettetevi alla prova in una vera **arena di combattimento**, sfidando gli avversari in uno spietato scontro all'ultimo circuito.  
 Il torneo seguirà la formula del girone all’italiana dove ogni robot affronterà i robot avversari.  
 Battetevi! Per la gloria e per lo spettacolo!
 
 ---
 
-# 📝 Regolamento e Iscrizioni
+## 📝 Regolamento e Iscrizioni
 
 Di seguito è possibile compilare i form d'iscrizione:
 
@@ -87,16 +87,16 @@ Per qualsiasi domanda o chiarimento non esitate a contattarci all'indirizzo emai
 Puoi trovarci in [Via Senatore Diogene Valotti, 3b, Brescia](https://maps.app.goo.gl/WpPe7QCL2RA4hPRW9) tutti i martedì sera nell'aula associazioni.  
 Puoi raggiungerci tramite:
 
-* <span class="fa fa-1x fa-train"> *Treno*</span> – Stazione di Brescia → Metro (direzione Prealpino)
-* <span class="fa fa-1x fa-subway"> *Metro*</span> – Fermata Europa → attraversa Via Branze, entra nel parcheggio
+* **Treno** – Stazione di Brescia → Metro (direzione Prealpino)
+* **Metro** – Fermata Europa → attraversa Via Branze, entra nel parcheggio
 * <span class="fa fa-1x fa-bus"> *Bus*</span> – Linee 16 e 10, fermata in Via Branze
-* <span class="fa fa-1x fa-car"> *Auto*</span> – Ampio parcheggio disponibile
+* **Auto** – Ampio parcheggio disponibile
 
 Per qualsiasi domanda o chiarimento non esitate a contattarci all'indirizzo email della nostra associazione: [info@muhack.org](mailto:info@muhack.org)!  
 
 ---
 
-# 🎓 Evento realizzato con il supporto dell'Università degli Studi di Brescia
+### 🎓 Evento realizzato con il supporto dell'Università degli Studi di Brescia
 
 Build 'N' Smash è realizzato con il sostegno del bando per attività studentesche dell’Università degli Studi di Brescia.  
 Un ringraziamento all’ateneo per il supporto e la fiducia nelle iniziative che promuovono competenze tecniche e crescita professionale.

@@ -7,13 +7,12 @@ date: 2019-03-26
 author: MrMoDDoM
 header-img: /public/img/2019-03-26-build-n-smash-2k19.jpg
 ---
+
 # UPDATE (Aggiunti link in fondo alla pagina per il programma e il materiale!)
-
-
 
 Siamo felici di proporvi, in collaborazione con la [Barattieri SRL](https://barattieri.info/) e L'Università degl Studi di Brescia, un laboratorio __completamente gratuito__ di costruzione di robot da combattimento!
 
-# Informazioni Generali
+## Informazioni Generali
 
 Questo workshop anticipa un nostro evento che si tiene ogni anno, __Hack 'N' Smash__: una battaglia fra robot appartenenti alla categoria antweight (peso massimo 200g e dimensioni 10cm x 10cm x 10cm), vi lasciamo il link al regolamento completo ([clicca qui](/public/doc/regolamento-hack-n-smash.pdf)) e infondo alla pagina troverete il video della battaglia dell'edizione 2017!
 
@@ -34,10 +33,10 @@ Chi non potrà o non sarà riuscito a partecipare al corso, sul nostro sito sar�
 
 L'evento si svolgerà nei giorni del  __<u>11-18-25 Maggio 2019 dalle 14:00 - 20:00</u>__ presso la [Sala Associazioni c/o ISU dell'UniBS](https://goo.gl/maps/sB5veuG4jdM2) in via Diogene Valotti 3B, Brescia.
 
-* <span class="fa fa-1x fa-train"> *Treno*</span> - Scendi alla Stazione di Brescia, nel piazzale prosegui a destra, raggiungendo la stazione della metro (aperta fino a mezzanotte).
-* <span class="fa fa-1x fa-subway"> *Metro*</span> - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
-* <span class="fa fa-1x fa-bus"> *Autobus*</span> - Linea 16 e 10 in Via Branze, risali sino al campo da baseball ed entra nel parcheggio.
-* <span class="fa fa-1x fa-car"> *Auto*</span> - Parcheggia in zona.
+* **Treno** - Scendi alla Stazione di Brescia, nel piazzale prosegui a destra, raggiungendo la stazione della metro (aperta fino a mezzanotte).
+* **Metro** - Scendi alla Fermata Europa, attraversa Via Branze (verso il parcheggio prospicente la stazione della metro).
+* **Autobus** - Linea 16 e 10 in Via Branze, risali sino al campo da baseball ed entra nel parcheggio.
+* **Auto** - Parcheggia in zona.
 
 Se hai problemi, scrivi una email a [info@muhack.org](mailto:info@muhack.org), ti risponderemo subito!
 

@@ -1,0 +1,63 @@
+---
+layout: default
+title: Blog
+description: "News, eventi, writeup e tutto quello che succede in hackerspace."
+permalink: /blog/
+---
+<div class="page-header">
+    <div class="page-header-inner">
+        <nav class="breadcrumb">
+            <a href="{{ site.baseurl }}/">Home</a>
+            <span>/</span>
+            <span>Blog</span>
+        </nav>
+        <h1>BLOG</h1>
+        <p class="subtitle">News, eventi, writeup e tutto quello che succede in hackerspace.</p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="blog-content">
+        <div class="filter-bar" role="tablist">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Tutti</button>
+            <button class="filter-tab" data-filter="events" role="tab" aria-selected="false">Eventi</button>
+            <button class="filter-tab" data-filter="talks" role="tab" aria-selected="false">Talks</button>
+            <button class="filter-tab" data-filter="news" role="tab" aria-selected="false">News</button>
+        </div>
+
+        <div class="posts-list" id="postsList">
+            {% for post in site.posts %}
+            {% assign category = post.categories | first | downcase %}
+            {% assign cat_class = category | default: 'news' %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="post-card{% if forloop.first %} featured{% endif %}" data-category="{{ cat_class }}">
+                <div class="post-card-inner">
+                    <div class="post-date">
+                        <span class="day">{{ post.date | date: "%d" }}</span>
+                        <span class="month">{{ post.date | date: "%b %Y" }}</span>
+                    </div>
+                    <div class="post-body">
+                        {% if category == 'events' %}<span class="post-tag event">Event</span>
+                        {% elsif category == 'talks' %}<span class="post-tag event">Talk</span>
+                        {% elsif category == 'writeup' or category == 'writeups' %}<span class="post-tag writeup">Writeup</span>
+                        {% else %}<span class="post-tag news">News</span>{% endif %}
+                        <h3>{{ post.title }}</h3>
+                        {% if post.subtitle %}<p>{{ post.subtitle }}</p>{% endif %}
+                        <div class="post-meta">
+                            <span class="author">{{ post.author | default: site.title }}</span>
+                            {% assign words = post.content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+                            <span class="reading-time">{{ minutes }} min</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="load-more" id="loadMore">
+            <div class="load-more-spinner"></div>
+            <span class="load-more-text">Caricamento...</span>
+        </div>
+    </div>
+</div>
+
+<script src="{{ '/assets/js/blog.js' | prepend: site.baseurl }}"></script>

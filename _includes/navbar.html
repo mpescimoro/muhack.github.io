@@ -1,35 +1,63 @@
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+<header>
+    <div class="header-inner">
+        <a href="{{ site.baseurl }}/" class="logo-area">
+            <div class="logo-img">
+                <img src="https://raw.githubusercontent.com/muhack/muhack_svg/refs/heads/master/loghi/logo.svg" alt="MuHack Logo">
+            </div>
+            <div class="site-title">MUHACK</div>
+        </a>
+        <div class="nav-area">
+            <nav class="desktop-nav" role="navigation" aria-label="Navigazione principale">
+                <a href="{{ site.baseurl }}/"{% if page.url == '/' or page.url == '/index.html' %} class="active"{% endif %}>Home</a>
+                <a href="{{ site.baseurl }}/about/"{% if page.url contains 'about' %} class="active"{% endif %}>About</a>
+                <a href="{{ site.baseurl }}/blog/"{% if page.url contains 'blog' or page.layout == 'post' %} class="active"{% endif %}>Blog</a>
+                <a href="https://wiki.muhack.org/" target="_blank" rel="noopener">Wiki</a>
+                <a href="https://status.muhack.org/" target="_blank" rel="noopener">Status</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
             </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+            <button class="search-btn" id="searchToggle" aria-label="Cerca">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+            <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+                <div class="hamburger-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ site.baseurl }}/">Home</a></li>
-                {% for page in site.pages %}{% if page.title %}
-				            {% if page.url != '/404.html' %}
-                        <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-				            {% endif %}
-                {% endif %}{% endfor %}
-                <li><a href="https://status.muhack.org/">Service status</a></li>
-                <li><a href="https://wiki.muhack.org/">Wiki</a></li>
-                <!-- Search form -->
-                <li>
-                    <form action="/search/" method="get">
-                        <input class="search" type="text" id="search-box" name="query" placeholder="CERCA" autocomplete="off">
-                    </form>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
-</nav>
+</header>
+
+<div class="mobile-nav-overlay" id="mobileNav">
+    <button class="mobile-nav-close" onclick="toggleMenu()">×</button>
+    <a href="{{ site.baseurl }}/" onclick="toggleMenu()">Home</a>
+    <a href="{{ site.baseurl }}/about/" onclick="toggleMenu()">About</a>
+    <a href="{{ site.baseurl }}/blog/" onclick="toggleMenu()">Blog</a>
+    <a href="https://wiki.muhack.org/" onclick="toggleMenu()">Wiki</a>
+    <a href="https://status.muhack.org/" onclick="toggleMenu()">Status</a>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+        <button class="search-close" id="searchClose" aria-label="Chiudi ricerca">×</button>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="Cerca nel sito..." autocomplete="off" autofocus>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+            <div class="search-hint">
+                <span>Premi <kbd>ESC</kbd> per chiudere</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,6 @@ author: dr-marco
 header-img: /public/img/2022-12-20-inkscape-with-logo.png
 ---
 
-
 Attaccare adesivi sul proprio computer è una delle cose che accomunano tutte le persone all'interno di un hackerspace e in questo Muhack non fa eccezione. Sono molti gli stickers che si possono ritrovare, da eventi hacker a associazioni sportive e non, da meme bellissimi a luoghi e locali visitati. E molto spesso si possono vedere adesivi disegnati e stampati dagli stessi proprietari del pc.
 
 Anche Muhack ha più volte stampato adesivi da attaccare nei posti più disparati, da banalmente i pc degli associati alle varie città di mezza Europa. Quindi quando siete in giro fateci caso, potreste imbattervi in qualcuno!
@@ -17,7 +16,7 @@ Anche Muhack ha più volte stampato adesivi da attaccare nei posti più disparat
 
 E se volete, in associazione è possibile richiedere stickers classici da attaccare sul vostro computer oppure se dovete prepararvi per la vostra spedizione fuori porta. Insomma, spargere gli adesivi Muhack in nuove città è sempre ben accetto e incoraggiato.
 
-# Creare il proprio design con Inkscape #
+## Creare il proprio design con Inkscape
 
 Anche se il logo nero, classico, Muhack è molto bello, qualcuno potrebbe voler osare con il design e scegliere qualche colore particolare e alleviare il proprio prurito artistico. Ebbene, __potete farlo!__ Infatti sul repository github [muhack_svg][1] sono disponibili file in formato vettoriale che possono essere scaricati liberamente, non solo il logo utilizzato per gli sticker ma anche i vettoriali della mascotte Hax, altre versioni del logo e pattern utilizzabili come sfondi chat, fondo locandine, et cetera... 
 
@@ -39,7 +38,7 @@ Il mio consiglio poi è quello di non modificare la forma di questi elementi ma 
 Una volta finito con i colori è giunto il momento di esportare il file ad alta risoluzione. Per farlo basta cliccare in `File->Esporta...` e impostare i `DPI` a un valore abbastanza elevato, ad esempio 500 va più che bene, e scegliere titolo e formato file, ad esempio `.png`. Il file è configurato con una dimensione 76 mm sia in larghezza che in altezza: se volete stampare gli adesivi con il metodo descritto nella prossima sezione mantenete queste dimensioni.
 
 
-# Stampare il proprio sticker personalizzato #
+## Stampare il proprio sticker personalizzato
 
 Ok, ma come faccio a stampare gli adesivi che ho appena creato? E mi costeranno una fortuna farli stampare?
 Tranquilli, molto spesso è possibile usufruire di una promozione da parte di [sticker mule][2] che vi permette di stampare una decina di adesivi a 1 solo euro, spedizione inclusa. La promozione è ciclica e a volte potrebbe non essere disponibile. In genere vi conviene fare una breve ricerca su Google (es. "sticker mule 1€") per vedere se la promo è attiva. Nota: la promo di solito è valida come primo acquisto sul sito, quindi per più ordini sarà necessario avere più account.
@@ -53,9 +52,6 @@ Un mio ultimo consiglio: portate i vostri adesivi in associazione e scambiateli 
 <figure><a href="{{ site.url }}public/img/2022-12-20-custom-sticker.jpg"><img src="{{ site.url }}public/img/2022-12-20-custom-sticker.jpg" alt="Stickers Muhack"></a></figure>
 
 Insomma, divertitevi a personalizzare il logo Muhack con lo stile che più vi piace. Sicuramente ne uscirà qualcosa di bello!
-
-
-
 
 [1]:    https://github.com/muhack/muhack_svg
 [2]:    https://www.stickermule.com/it
